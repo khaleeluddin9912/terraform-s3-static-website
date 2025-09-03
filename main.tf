@@ -20,7 +20,7 @@ resource "random_id" "rand_id" {
 }
 
 resource "aws_s3_bucket" "my_bucket" {
-  bucket = "my-portfolio-website8-${random_id.rand_id.hex}"
+  bucket = "mku-portfolio-${random_id.rand_id.hex}"
 }
 
 resource "aws_s3_bucket_public_access_block" "first_bucket" {
@@ -32,7 +32,7 @@ resource "aws_s3_bucket_public_access_block" "first_bucket" {
   restrict_public_buckets = false
 }
 
-resource "aws_s3_bucket_policy" "bucket_policy" {
+resource "aws_s3_bucket_policy" "my_bucket_policy" {
   bucket = aws_s3_bucket.my_bucket.id
   policy = jsonencode(
     {
